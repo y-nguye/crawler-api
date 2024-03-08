@@ -11,7 +11,7 @@ class ScrapeController extends Controller
 
     public function index()
     {
-        $url = 'https://lichcupdien.org/lich-cup-dien-cao-lanh-dong-thap';
+        $url = 'https://lichcupdien.org/lich-cup-dien-lap-vo-dong-thap';
         $html = file_get_contents($url);
 
         // Kiểm tra xem có lỗi khi tải trang không
