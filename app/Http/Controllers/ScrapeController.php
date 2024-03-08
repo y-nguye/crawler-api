@@ -11,7 +11,7 @@ class ScrapeController extends Controller
 
     public function index()
     {
-        $url = 'https://lichcupdien.org/lich-cup-dien-lap-vo-dong-thap';
+        $url = 'https://lichcupdien.org/lich-cup-dien-cao-lanh-dong-thap';
         $html = file_get_contents($url);
 
         // Kiểm tra xem có lỗi khi tải trang không
@@ -24,8 +24,9 @@ class ScrapeController extends Controller
 
         // Lọc tất cả các phần tử có class là "lcd_detail_wrapper"
         $crawler->filter('.lcd_detail_wrapper')->each(function (Crawler $element) {
+            $titleArray = $element->filter('.title_item_lcd_wrapper')->extract(['_text']);
             $contentArray = $element->filter('.content_item_content_lcd_wrapper')->extract(['_text']);
-            $this->results[] =  $contentArray;
+            $this->results[] =  array_combine($titleArray, $contentArray);
         });
 
         $data = $this->results;
