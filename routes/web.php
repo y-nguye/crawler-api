@@ -14,6 +14,7 @@ use App\Http\Controllers\ScrapeController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    // return view('welcome');
+    return 'Hello World';
+});
