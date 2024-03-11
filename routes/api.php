@@ -20,4 +20,4 @@ use App\Http\Controllers\ScrapeController;
 //     return $request->user();
 // });
 
-Route::get('/lich', [ScrapeController::class, 'index']);
+Route::get('/lich-cup-dien/{location}', [ScrapeController::class, 'index']);
